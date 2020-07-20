@@ -20,6 +20,13 @@ public class GlareCore {
     private final PaperCommandManager commandManager;
     private final SettingsManager settingsManager;
 
+    private GlareCore(@NotNull final GlareCoreBuilder builder) {
+        this.bukkitAudiences = builder.bukkitAudiences;
+        this.miniMessage = builder.miniMessage;
+        this.commandManager = builder.commandManager;
+        this.settingsManager = builder.settingsManager;
+    }
+
     public BukkitAudiences getBukkitAudiences() {
         return bukkitAudiences;
     }
@@ -36,17 +43,10 @@ public class GlareCore {
         return settingsManager;
     }
 
-    private GlareCore(@NotNull final GlareCoreBuilder builder) {
-        this.bukkitAudiences = builder.bukkitAudiences;
-        this.miniMessage = builder.miniMessage;
-        this.commandManager = builder.commandManager;
-        this.settingsManager = builder.settingsManager;
-    }
-
     public static class GlareCoreBuilder {
+        private final PaperCommandManager commandManager;
         private BukkitAudiences bukkitAudiences;
         private MiniMessage miniMessage;
-        private final PaperCommandManager commandManager;
         private SettingsManager settingsManager;
 
         public GlareCoreBuilder(@NotNull final JavaPlugin plugin) {
