@@ -7,6 +7,7 @@ import co.aikar.commands.PaperCommandManager;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -32,7 +33,7 @@ public class GlareCore {
         return settingsManager;
     }
 
-    private GlareCore(GlareCoreBuilder builder) {
+    private GlareCore(@NotNull final GlareCoreBuilder builder) {
         this.bukkitAudiences = builder.bukkitAudiences;
         this.miniMessage = builder.miniMessage;
         this.commandManager = builder.commandManager;
@@ -45,11 +46,11 @@ public class GlareCore {
         private final PaperCommandManager commandManager;
         private SettingsManager settingsManager;
 
-        public GlareCoreBuilder(final PaperCommandManager commandManager) {
+        public GlareCoreBuilder(@NotNull final PaperCommandManager commandManager) {
             this.commandManager = commandManager;
         }
 
-        public GlareCoreBuilder useAdventure(final JavaPlugin plugin) {
+        public GlareCoreBuilder useAdventure(@NotNull final JavaPlugin plugin) {
             this.bukkitAudiences = BukkitAudiences.create(plugin);
             return this;
         }
@@ -59,7 +60,7 @@ public class GlareCore {
             return this;
         }
 
-        public GlareCoreBuilder useConfigMe(final File file, final ConfigurationData configurationData) {
+        public GlareCoreBuilder useConfigMe(@NotNull final File file, @NotNull final ConfigurationData configurationData) {
             this.settingsManager = SettingsManagerBuilder.withYamlFile(file).useDefaultMigrationService().configurationData(configurationData).create();
             return this;
         }
