@@ -5,6 +5,7 @@ import com.mojang.authlib.properties.Property;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
 import java.util.Base64;
@@ -24,7 +25,7 @@ public class SkullUtils {
      * @param skinUrl the url of the skin
      * @return encoded
      */
-    public static String getEncoded(final String skinUrl) {
+    public static String getEncoded(@NotNull final String skinUrl) {
         final byte[] encodedData = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", skinUrl).getBytes());
         return new String(encodedData);
     }
@@ -35,7 +36,7 @@ public class SkullUtils {
      * @param url the url to use
      * @return game profile
      */
-    public static GameProfile getGameProfile(final String url) {
+    public static GameProfile getGameProfile(@NotNull final String url) {
         final GameProfile profile = new GameProfile(UUID.randomUUID(), null);
         profile.getProperties().put("textures", new Property("textures", url));
         return profile;
@@ -47,7 +48,7 @@ public class SkullUtils {
      * @param skinUrl url to use
      * @return skull
      */
-    public static ItemStack getSkull(final String skinUrl) {
+    public static ItemStack getSkull(@NotNull final String skinUrl) {
         final ItemStack head = new ItemStack(Material.PLAYER_HEAD);
         if (skinUrl.isEmpty()) return head;
 
