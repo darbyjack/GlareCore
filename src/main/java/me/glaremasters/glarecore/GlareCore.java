@@ -52,10 +52,9 @@ public class GlareCore {
         public GlareCoreBuilder(@NotNull final JavaPlugin plugin) {
             this.commandManager = new PaperCommandManager(plugin);
         }
-        
-        public GlareCoreBuilder addLangFile(@NotNull final String file, @NotNull final JavaPlugin plugin) {
+
+        public GlareCoreBuilder addLangFile(@NotNull final String file, @NotNull final JavaPlugin plugin, @NotNull final Locale locale) {
             final File langFile = new File(plugin.getDataFolder(), file);
-            final Locale locale = Locale.ENGLISH;
             if (!langFile.exists()) {
                 plugin.saveResource(file, false);
             }
