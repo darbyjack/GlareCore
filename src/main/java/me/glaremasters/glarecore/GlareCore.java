@@ -46,8 +46,8 @@ public class GlareCore {
         private final PaperCommandManager commandManager;
         private SettingsManager settingsManager;
 
-        public GlareCoreBuilder(@NotNull final PaperCommandManager commandManager) {
-            this.commandManager = commandManager;
+        public GlareCoreBuilder(@NotNull final JavaPlugin plugin) {
+            this.commandManager = new PaperCommandManager(plugin);
         }
 
         public GlareCoreBuilder useAdventure(@NotNull final JavaPlugin plugin) {
