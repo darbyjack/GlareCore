@@ -1,14 +1,40 @@
 plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
     id 'java'
 }
 
-group 'org.example'
+group 'me.glaremasters'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+
+    maven { url = "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url = "https://papermc.io/repo/repository/maven-public/" }
+    maven { url = 'https://repo.aikar.co/content/groups/aikar/' }
+    maven { url = "https://repo.glaremasters.me/repository/public/" }
+
+}
+
+shadowJar {
+    relocate("ch.jalu.configme", "me.glaremasters.glarecore.libs.configme")
+    relocate("co.aikar.commands", "me.glaremasters.glarecore.libs.acf")
+    relocate("co.aikar.locales", "me.glaremasters.glarecore.libs.locales")
+    relocate("net.kyori", "me.glaremasters.glarecore.libs.kyori")
+    archiveFileName = "GlareCore-${project.version}.jar"
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // Compile against Paper
+    compileOnly "com.destroystokyo.paper:paper-api:1.16.1-R0.1-SNAPSHOT"
+
+    // Configuration Library
+    implementation "ch.jalu:configme:1.2.0-SNAPSHOT"
+
+    // Command Library
+    implementation "co.aikar:acf-paper:0.5.0-SNAPSHOT"
+
+    // Json Library
+    implementation "net.kyori:adventure-platform-bukkit:4.0.0-SNAPSHOT"
+    implementation "net.kyori:adventure-text-minimessage:3.0.0-SNAPSHOT"
 }
