@@ -6,10 +6,13 @@ import ch.jalu.configme.configurationdata.ConfigurationData;
 import co.aikar.commands.PaperCommandManager;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Locale;
 
 public class GlareCore {
     private final BukkitAudiences bukkitAudiences;
@@ -48,6 +51,24 @@ public class GlareCore {
 
         public GlareCoreBuilder(@NotNull final JavaPlugin plugin) {
             this.commandManager = new PaperCommandManager(plugin);
+        }
+        
+        public GlareCoreBuilder addLangFile(@NotNull final String file, @NotNull final JavaPlugin plugin) {
+            final File langFile = new File(plugin.getDataFolder(), file);
+            final Locale locale = Locale.ENGLISH;
+            if (!langFile.exists()) {
+                plugin.saveResource(file, false);
+            }
+            this.commandManager.addSupportedLanguage(locale);
+
+            try {
+                this.commandManager.getLocales().loadYamlLanguageFile(langFile, locale);
+            } catch (IOException | InvalidConfigurationException exception) {
+                exception.printStackTrace();
+            }
+
+            this.commandManager.getLocales().setDefaultLocale(locale);
+            return this;
         }
 
         public GlareCoreBuilder useAdventure(@NotNull final JavaPlugin plugin) {
