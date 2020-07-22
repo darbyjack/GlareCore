@@ -19,11 +19,7 @@ repositories {
 }
 
 shadowJar {
-    relocate("ch.jalu.configme", "me.glaremasters.glarecore.libs.configme")
-    relocate("co.aikar.commands", "me.glaremasters.glarecore.libs.acf")
-    relocate("co.aikar.locales", "me.glaremasters.glarecore.libs.locales")
-    relocate("net.kyori", "me.glaremasters.glarecore.libs.kyori")
-    archiveFileName = "GlareCore-${project.version}.jar"
+    archiveFileName = "glarecore-${project.version}.jar"
 }
 
 dependencies {
