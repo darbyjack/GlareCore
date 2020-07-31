@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'me.glaremasters'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -42,6 +42,8 @@ dependencies {
     // IntelliJ Annotations
     api "org.jetbrains:annotations:19.0.0"
 }
+
+
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
