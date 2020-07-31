@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'me.glaremasters'
-version '1.0'
+version '1.1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -42,7 +42,6 @@ dependencies {
     // IntelliJ Annotations
     api "org.jetbrains:annotations:19.0.0"
 }
-
 
 
 tasks.withType(JavaCompile) {
