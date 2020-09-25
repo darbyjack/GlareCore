@@ -26,8 +26,7 @@ public class SkullUtils {
      * @return encoded
      */
     public static String getEncoded(@NotNull final String skinUrl) {
-        final byte[] encodedData = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", skinUrl).getBytes());
-        return new String(encodedData);
+        return new String(Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", skinUrl).getBytes()));
     }
 
     /**
