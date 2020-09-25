@@ -22,6 +22,9 @@ public class GlareCore {
         this.bukkitAudiences = builder.bukkitAudiences;
         this.commandManager = builder.commandManager;
         this.settingsManager = builder.settingsManager;
+
+        this.commandManager.enableUnstableAPI("help");
+        this.commandManager.enableUnstableAPI("brigadier");
     }
 
     public BukkitAudiences getBukkitAudiences() {
