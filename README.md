@@ -7,3 +7,4 @@ Here's what is currently in it:
 - Adventure (https://github.com/KyoriPowered/adventure)
 - ConfigMe (https://github.com/AuthMe/ConfigMe)
 - MiniMessage (https://github.com/KyoriPowered/adventure-text-minimessage)
+- MF-GUI (https://github.com/ipsk/MF-GUI)
