@@ -40,7 +40,7 @@ dependencies {
     api "net.kyori:adventure-text-minimessage:4.0.0-SNAPSHOT"
 
     // IntelliJ Annotations
-    api "org.jetbrains:annotations:20.1.0"
+    api "org.jetbrains:annotations:21.0.0"
 
     // Gui Library
     api "me.mattstudios.utils:matt-framework-gui:2.0.3.3"
