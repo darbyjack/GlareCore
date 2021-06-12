@@ -27,7 +27,7 @@ dependencies {
     compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
 
     // Mojang Library
-    compileOnly "com.mojang:authlib:1.5.25"
+    compileOnly "com.mojang:authlib:1.11"
 
     // Configuration Library
     api "ch.jalu:configme:1.2.0"
