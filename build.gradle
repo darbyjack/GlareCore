@@ -33,7 +33,7 @@ dependencies {
     api "ch.jalu:configme:1.2.0"
 
     // Command Library
-    api "co.aikar:acf-paper:0.5.0-SNAPSHOT"
+    api "co.aikar:acf-paper:0.5.1-SNAPSHOT"
 
     // Json Library
     api "net.kyori:adventure-platform-bukkit:4.0.0-SNAPSHOT"
